@@ -16,7 +16,8 @@ class AuthController extends Controller
     }
     public function proses(){
         // Ambil data user dari google
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('google')->stateless()->user();
+        // $user = Socialite::driver('google')->user();
 
         $user_data = $user->user;
         // Cek email pkn stan

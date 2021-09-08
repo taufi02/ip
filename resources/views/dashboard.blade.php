@@ -1,35 +1,34 @@
 @extends('layout.index')
 @section('content')
-<div class="flex justify-content-center pt-5 mx-auto">
-    <div class="card p-3 shadow">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item fw-bold">
-                Nama : {{ session("user")->name}}
-            </li>
-            <li class="list-group-item fw-bold">
-                Email : {{ session('user')->email}}
-            </li>
-            <li class="list-group-item fw-bold">
-                NIM : {{ session('user')->npm}}
-            </li>
-        </ul>
+<div class="grid grid-cols-12 p-8 text-primary-content gap-x-4 gap-y-4">
+    <div class="col-span-12 md:col-span-6 md:row-span-3 card shadow-xl p-8">
+      <canvas id="myChart"></canvas>
     </div>
-    <div class="card mt-5 p-3 shadow overflow-auto">
+    <div class="col-span-12 md:col-span-6 card shadow-xl p-8">
+      Pilihan 1
+    </div>
+    <div class="col-span-12 md:col-span-6 card shadow-xl p-8">
+      Pilihan 1
+    </div>
+    <div class="col-span-12 md:col-span-6 card shadow-xl p-8">
+      Pilihan 1
+    </div>
+    <div class="col-span-12 card shadow-xl p-8">
         @if (session()->has('pesan_isi'))
           <div class="alert alert-{{ session()->get('pesan_tipe') }} alert-dismissible fade show" role="alert">
               {{ session()->get('pesan_isi') }}
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
-        <table class="table text-center">
+        <table class="table table-zebra">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">IP / Nilai SKD</th>
-                <th scope="col">Rata-rata angkatan</th>
-                <th scope="col">Peringkat</th>
-                <th scope="col" style="max-width: 200px" class="text-center">Partisipan</th>
-                <th scope="col">Aksi</th>
+                <th>#</th>
+                <th>IP / Nilai SKD</th>
+                <th>Rata-rata angkatan</th>
+                <th>Peringkat</th>
+                <th style="max-width: 200px" class="text-center">Partisipan</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -93,11 +92,6 @@
 
             </tbody>
           </table>
-    </div>
-    <div class="card mt-5 p-3 shadow overflow-auto" >
-        <div style="min-width: 500px">
-            <canvas id="myChart"></canvas>
-        </div>
     </div>
 </div>
 
