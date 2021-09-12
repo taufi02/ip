@@ -22,9 +22,15 @@ class DatabaseSeeder extends Seeder
             NilaiSemLimaSeeder::class,
             NilaiSemEnamSeeder::class,
             SkdSeeder::class,
+            InstansiSeeder::class,
+            AktifSeeder::class,
+            PilihanSatuSeeder::class,
+            PilihanDuaSeeder::class,
+            PilihanTigaSeeder::class,
+            RoleSeeder::class,
         ]);
 
-        
+
         // \App\Models\User::factory(10)->create();
     }
 }

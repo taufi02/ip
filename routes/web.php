@@ -10,8 +10,12 @@ use App\Http\Controllers\NilaiSemEmpatController;
 use App\Http\Controllers\NilaiSemLimaController;
 use App\Http\Controllers\NilaiSemEnamController;
 use App\Http\Controllers\SkdController;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Instansi;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', Dashboard::class)->name('home');
+Route::get('/instansi', Instansi::class);
 
 Route::get('/guest', function(){return view('guest');})->name('guest');
 Route::get('/auth/redirect', [AuthController::class, 'redirect'])->name('auth.login');

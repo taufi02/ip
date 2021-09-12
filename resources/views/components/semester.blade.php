@@ -5,12 +5,12 @@
     <td>{{ isset($nilai) ? $rank : 'N/A' }} / {{ isset($nilai) ? $partisipan : 'N/A' }}</td>
     <td>
         @if( isset($nilai) )
-        <progress class="progress progress-primary" value="{{ $progress }}" max="100"></progress> 
+        <progress class="progress progress-primary" value="{{ $progress }}" max="100"></progress>
         <!-- <div class="progress mt-3" style="height: 5px">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%"></div>
         </div> -->
         @else
-            Input nilai Anda terlebih dahulu!
+            Input nilaimu terlebih dahulu!
         @endif
     </td>
     <td>

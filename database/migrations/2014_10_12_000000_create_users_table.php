@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('npm')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('ipk')->nullable();
+            $table->boolean('is_anonim')->default(0);
             $table->timestamps();
         });
     }

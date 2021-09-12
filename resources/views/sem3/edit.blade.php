@@ -1,5 +1,3 @@
-@extends('layout.index')
-@section('content')
 <x-form.form
     route="nilai-sem-tiga.update"
     tipe="Update"
@@ -16,4 +14,3 @@
     <x-form.input :edit="$nilai->bmn1 " label="Pengelolaan BMN I (3 sks)" nama="bmn1"></x-form>
     <x-form.input :edit="$nilai->hap " label="Hukum Acara Perdata (2 sks)" nama="hap"></x-form>
 </x-form>
-@endsection

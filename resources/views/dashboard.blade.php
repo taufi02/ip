@@ -1,19 +1,38 @@
 @extends('layout.index')
 @section('content')
-<div class="grid grid-cols-12 p-8 text-primary-content gap-x-4 gap-y-4">
-    <div class="col-span-12 md:col-span-6 md:row-span-3 card shadow-xl p-8">
+<div class="grid grid-cols-12 p-8 text-primary-content gap-x-4 gap-y-4 items-center">
+    <div class="col-span-12 md:col-span-6 md:row-span-3 card shadow-xl p-8 bg-base-200 ">
       <canvas id="myChart"></canvas>
     </div>
-    <div class="col-span-12 md:col-span-6 card shadow-xl p-8">
-      Pilihan 1
+    <div class="col-span-12 md:col-span-6 card shadow-xl p-8 flex flex-row items-center space-x-4 bg-base-200">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path></svg>
+      <span >
+        Pilihan 1 : 
+      </span>
+      <select class="select select-sm select-bordered select-primary ">
+        <option disabled="disabled" selected="selected">Pilih Instansi</option> 
+        <option>telekinesis</option> 
+        <option>time travel</option> 
+        <option>invisibility</option>
+      </select>
+      <small>
+        26 Orang memilih kantor yang sama
+      </small>
     </div>
-    <div class="col-span-12 md:col-span-6 card shadow-xl p-8">
-      Pilihan 1
+    <div class="col-span-12 md:col-span-6 card shadow-xl p-8 flex flex-row items-center space-x-4 bg-base-200">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path></svg>
+      <span>
+        Pilihan 1 : Kantor Pusat Jatinegara
+      </span>
     </div>
-    <div class="col-span-12 md:col-span-6 card shadow-xl p-8">
-      Pilihan 1
+    <div class="col-span-12 md:col-span-6 card shadow-xl p-8 flex flex-row items-center space-x-4 bg-base-200">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path></svg>
+      <span>
+        Pilihan 1 : Kantor Pusat Jatinegara
+      </span>
     </div>
-    <div class="col-span-12 card shadow-xl p-8">
+    <!-- Tabel IP -->
+    <div class="col-span-12 card shadow-xl p-8 bg-base-200">
         @if (session()->has('pesan_isi'))
           <div class="alert alert-{{ session()->get('pesan_tipe') }} alert-dismissible fade show" role="alert">
               {{ session()->get('pesan_isi') }}

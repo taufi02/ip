@@ -16,7 +16,7 @@ class NilaiSemDuaSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for($i=1; $i <= 50; $i++){
+        for($i=1; $i <= 100; $i++){
 
             DB::table('nilai_sem_duas')->insert([
                 'id' => $i,

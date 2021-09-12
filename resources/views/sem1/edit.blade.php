@@ -1,8 +1,6 @@
-@extends('layout.index')
-@section('content')
-<x-form.form 
+<x-form.form
     route="nilai-sem-satu.update"
-    tipe="Update" 
+    tipe="Update"
     :user="['nilai_sem_satu' => session('user')->id]"
     judul="Input data semester 1"
     >
@@ -16,4 +14,3 @@
     <x-form.input :edit="$nilai->pengakun1 " label="Pengantar Akuntansi 1 (3 sks)" nama="pengakun1"></x-form>
     <x-form.input :edit="$nilai->manajemen " label="Manajemen (3 sks)" nama="manajemen"></x-form>
 </x-form>
-@endsection

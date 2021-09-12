@@ -1,6 +1,4 @@
-@extends('layout.index')
-@section('content')
-<x-form.form 
+<x-form.form
     route="nilai-sem-satu.store"
     tipe="Create"
     judul="Input data semester 1"
@@ -14,4 +12,3 @@
     <x-form.input label="Pengantar Akuntansi 1 (3 sks)" nama="pengakun1"></x-form>
     <x-form.input label="Manajemen (3 sks)" nama="manajemen"></x-form>
 </x-form>
-@endsection

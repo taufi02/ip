@@ -70,5 +70,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(skd::class);
     }
+    public function instansis()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 
 }

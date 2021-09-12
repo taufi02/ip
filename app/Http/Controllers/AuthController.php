@@ -48,6 +48,8 @@ class AuthController extends Controller
             $user_baru->google_id = $user->getId();
             $user_baru->avatar = $user->getAvatar();
             $user_baru->npm = $npm;
+            $user_baru->ipk = null;
+            $user_baru->is_anonim = 0;
             $user_baru->save();
             session(['user' => $user_baru]);
             return redirect(route('home'));

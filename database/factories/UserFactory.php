@@ -25,6 +25,8 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'google_id' => $this->faker->numerify('######'),
+            'ipk' => $this->faker->randomFloat(2,2.75,4),
+            'is_anonim' => $this->faker->numberBetween(0,1),
         ];
     }
 

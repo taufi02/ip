@@ -1,5 +1,3 @@
-@extends('layout.index')
-@section('content')
 <x-form.form
     route="nilai-sem-empat.store"
     tipe="Create"
@@ -14,4 +12,3 @@
     <x-form.input  label="Makroekonomi (3 sks)" nama="makro"></x-form>
     <x-form.input  label="Peradilan TUN (2 sks)" nama="ptun"></x-form>
 </x-form>
-@endsection

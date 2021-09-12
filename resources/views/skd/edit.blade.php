@@ -1,8 +1,6 @@
-@extends('layout.index')
-@section('content')
-<x-form.form 
+<x-form.form
     route="skd.update"
-    tipe="Update" 
+    tipe="Update"
     :user="['skd' => session('user')->id]"
     judul="Input data tes SKD"
     >
@@ -11,4 +9,3 @@
     <x-form.input :edit="$nilai->tiu" label="Tes Intelegensia Umum" nama="tiu"></x-form>
     <x-form.input :edit="$nilai->tkp" label="Tes Karakteristik Pribadi" nama="tkp"></x-form>
 </x-form>
-@endsection

@@ -1,6 +1,4 @@
-@extends('layout.index')
-@section('content')
-<x-form.form 
+<x-form.form
     route="nilai-sem-dua.store"
     tipe="Create"
     judul="Input data semester 2"
@@ -15,4 +13,3 @@
     <x-form.input  label="Hukum Perdata (3 sks)" nama="hukper"></x-form>
     <x-form.input  label="Pengurusan Piutang Negara (3 sks)" nama="piutang"></x-form>
 </x-form>
-@endsection

@@ -1,5 +1,3 @@
-@extends('layout.index')
-@section('content')
 <x-form.form
     route="nilai-sem-tiga.store"
     tipe="Create"
@@ -14,4 +12,3 @@
     <x-form.input  label="Pengelolaan BMN I (3 sks)" nama="bmn1"></x-form>
     <x-form.input  label="Hukum Acara Perdata (2 sks)" nama="hap"></x-form>
 </x-form>
-@endsection
