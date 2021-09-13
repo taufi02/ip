@@ -7,7 +7,7 @@
         <canvas id="myChart" ></canvas>
     </div>
 
-    <div class="card col-span-6 md:col-span-3 bg-base-200 p-4 flex flex-col items-start overflow-visible">
+    <div class="card col-span-8 md:col-span-4 bg-base-200 p-4 flex flex-col items-start overflow-visible">
         <div class="flex flex-row items-center space-x-2">
             {{-- Proporsi IPK --}}
             <div class="relative"  x-data="{
@@ -56,7 +56,7 @@
         </div>
         <small>Proporisi gabungan</small>
     </div>
-    <div class="card col-span-6 md:col-span-3 bg-base-200 p-4 flex flex-col items-start overflow-visible">
+    <div class="card col-span-4 md:col-span-2 bg-base-200 p-4 flex flex-col items-start overflow-visible">
         <div class="flex flex-row items-center space-x-2">
             <div class="btn btn-xs btn-primary btn-outline" wire:click="ubah_anonim">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -87,7 +87,7 @@
         wire-model="pilihan_satu.instansi_id"
         wire-click="pilihan_satu"
         :instansis="$instansis"
-        :pilihan-instansi="$pilihan_satu->instansi_id"
+        :pilihan-instansi="$pilihan_satu->instansi->nama ?? null"
         :jumlah-instansi="$jumlah_instansi_satu"
         pilihan="pilihan_satus"
     ></x-pilihan>
@@ -97,7 +97,7 @@
         wire-model="pilihan_dua.instansi_id"
         wire-click="pilihan_dua"
         :instansis="$instansis"
-        :pilihan-instansi="$pilihan_dua->instansi_id"
+        :pilihan-instansi="$pilihan_dua->instansi->nama ?? null"
         :jumlah-instansi="$jumlah_instansi_dua"
         pilihan="pilihan_duas"
     ></x-pilihan>
@@ -107,7 +107,7 @@
         wire-model="pilihan_tiga.instansi_id"
         wire-click="pilihan_tiga"
         :instansis="$instansis"
-        :pilihan-instansi="$pilihan_tiga->instansi_id"
+        :pilihan-instansi="$pilihan_tiga->instansi->nama ?? null"
         :jumlah-instansi="$jumlah_instansi_tiga"
         pilihan="pilihan_tigas"
     ></x-pilihan>
@@ -174,25 +174,25 @@
     </div>
 
     <div class="card p-4 md:col-span-3 sm:col-span-6 col-span-12 flex flex-row items-center justify-center space-x-2 bg-base-200">
-        <span>IPK sekarang : </span>
+        <span>IPK sekarang</span>
         <div class="rounded-2xl bg-secondary flex items-center justify-center font-bold text-l h-12 w-12 text-base-200">
             {{ round($ipk_saya, 2) }}
         </div>
     </div>
     <div class="card p-4 md:col-span-3 sm:col-span-6 col-span-12 flex flex-row items-center justify-center space-x-2 bg-base-200">
-        <span>Peringkat IPK : </span>
+        <span>Peringkat IPK</span>
         <div class="rounded-2xl bg-secondary flex items-center justify-center font-bold text-l h-12 w-12 text-base-200">
             {{ $ipk_saya_rank }}
         </div>
     </div>
     <div class="card p-4 md:col-span-3 sm:col-span-6 col-span-12 flex flex-row items-center justify-center space-x-2 bg-base-200">
-        <span>SKD sekarang : </span>
+        <span>SKD sekarang</span>
         <div class="rounded-2xl bg-secondary flex items-center justify-center font-bold text-l h-12 w-12 text-base-200">
             {{ $skd_saya }}
         </div>
     </div>
     <div class="card p-4 md:col-span-3 sm:col-span-6 col-span-12 flex flex-row items-center justify-center space-x-2 bg-base-200">
-        <span>Peringkat SKD : </span>
+        <span>Peringkat SKD</span>
         <div class="rounded-2xl bg-secondary flex items-center justify-center font-bold text-l h-12 w-12 text-base-200">
             {{ $skd_saya_rank }}
         </div>

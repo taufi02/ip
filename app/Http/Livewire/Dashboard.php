@@ -208,7 +208,7 @@ class Dashboard extends Component
         ]);
 
         // Get availabel instansi
-        $this->instansis = Instansi::all();
+        $this->instansis = Instansi::orderBy('nama')->get();
         // Hitung pemilih instansi sesuai instansi pilihan user
         if($this->pilihan_satu->instansi_id != null){
             $this->jumlah_instansi_satu = Instansi::withCount('pilihan_satus')
