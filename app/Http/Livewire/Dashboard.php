@@ -425,7 +425,11 @@ class Dashboard extends Component
         $this->ipk_saya = $this->user->ipk;
         $this->ipk_saya_rank = User::orderByDesc('ipk')->pluck('ipk')->search($this->ipk_saya) + 1;
         $this->skd_saya = skd::where('user_id', $this->user->id)->first()->skd ?? 0;
-        $this->skd_saya_rank = skd::orderByDesc('skd')->pluck('skd')->search($this->skd_saya) +1;
+        if($this->skd_saya){
+            $this->skd_saya_rank = skd::orderByDesc('skd')->pluck('skd')->search($this->skd_saya)  +1;
+        } else {
+            $this->skd_saya_rank = '-';
+        }
         $this->nilai_gabungan_saya = $this->ubah_ipk_skd($this->ipk_saya, $this->skd_saya);
 
     }
