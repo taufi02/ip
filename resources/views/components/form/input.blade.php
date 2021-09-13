@@ -1,13 +1,13 @@
-<div class="input-group flex-nowrap mt-2">
-    <span class='input-group-text w-75 ' id="{{ $label }}">
-        {{ $label }} @error($nama) <span class="text-danger">| {{ $message }} </span>@enderror
-    </span>
-    <input type="text" 
-        class="form-control @error($nama) is-invalid @enderror"
-        placeholder="{{ $label }}"
-        aria-label="{{ $label}}"
-        aria-describedby="addon-wrapping"
-        name={{ $nama }}
-        value="{{ old($nama) ?? $edit ?? ' ' }}"
-        >
+<div class="form-control">
+    <label class="label">
+        <span class="label-text">{{ $label }} - {{ $sks }}sks</span>
+    </label>
+    <input type="text" class="input input-info input-bordered
+        @error($field)
+            input-error
+        @enderror
+    " wire:model="{{ $field }}">
+    <label class="label">
+        @error($field) <span class="label-text-alt text-error">{{ $message }}</span> @enderror
+    </label>
 </div>

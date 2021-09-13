@@ -96,7 +96,7 @@ class Dashboard extends Component
     }
 
     public function ubah_anonim(){
-        $this->user->is_anonim = ! $this->user->is_anonim;
+        $this->user->is_anonim = !$this->user->is_anonim;
         $this->user->save();
     }
 
@@ -105,12 +105,12 @@ class Dashboard extends Component
 
     public function show_instansi($pilihan){
         if($pilihan == 'pilihan_satus'){
-            $this->prioritas_instansi = 'Pilihan pertama';
-            $pilihan_saya = $this->pilihan_satu->instansi->nama;
-            if($this->pilihan_satu == ''){
-                $this->emit('alert', ['error', 'Maaf, masa perubahan data telah usai.']);
+            if($this->pilihan_satu->instansi_id == null){
+                $this->emit('alert', ['error', 'Maaf, silakan kamu memilih intansi terlebih dahulu.']);
                 return false;
             }
+            $this->prioritas_instansi = 'Pilihan pertama';
+            $pilihan_saya = $this->pilihan_satu->instansi->nama;
         } elseif($pilihan == 'pilihan_duas'){
             if($this->pilihan_dua->instansi_id == null){
                 $this->emit('alert', ['error', 'Maaf, silakan kamu memilih intansi terlebih dahulu.']);
@@ -119,6 +119,10 @@ class Dashboard extends Component
             $this->prioritas_instansi = 'Pilihan kedua';
             $pilihan_saya = $this->pilihan_dua->instansi->nama;
         } else {
+            if($this->pilihan_tiga->instansi_id == null){
+                $this->emit('alert', ['error', 'Maaf, silakan kamu memilih intansi terlebih dahulu.']);
+                return false;
+            }
             $this->prioritas_instansi = 'Pilihan ketiga';
             $pilihan_saya = $this->pilihan_tiga->instansi->nama;
         }
@@ -420,7 +424,7 @@ class Dashboard extends Component
 
         $this->ipk_saya = $this->user->ipk;
         $this->ipk_saya_rank = User::orderByDesc('ipk')->pluck('ipk')->search($this->ipk_saya) + 1;
-        $this->skd_saya = skd::where('user_id', $this->user->id)->first()->skd;
+        $this->skd_saya = skd::where('user_id', $this->user->id)->first()->skd ?? 0;
         $this->skd_saya_rank = skd::orderByDesc('skd')->pluck('skd')->search($this->skd_saya) +1;
         $this->nilai_gabungan_saya = $this->ubah_ipk_skd($this->ipk_saya, $this->skd_saya);
 

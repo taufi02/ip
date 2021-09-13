@@ -7,7 +7,7 @@
         <canvas id="myChart" ></canvas>
     </div>
 
-    <div class="card cols-span-6 md:col-span-3 bg-base-200 p-4 flex flex-col items-start overflow-visible">
+    <div class="card col-span-6 md:col-span-3 bg-base-200 p-4 flex flex-col items-start overflow-visible">
         <div class="flex flex-row items-center space-x-2">
             {{-- Proporsi IPK --}}
             <div class="relative"  x-data="{
@@ -56,7 +56,7 @@
         </div>
         <small>Proporisi gabungan</small>
     </div>
-    <div class="card cols-span-6 md:col-span-3 bg-base-200 p-4 flex flex-col items-start overflow-visible">
+    <div class="card col-span-6 md:col-span-3 bg-base-200 p-4 flex flex-col items-start overflow-visible">
         <div class="flex flex-row items-center space-x-2">
             <div class="btn btn-xs btn-primary btn-outline" wire:click="ubah_anonim">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -215,7 +215,7 @@
 
               <x-semester
                 no="Semester 1"
-                route="nilai-sem-satu"
+                route="nilai-satu"
                 :nilai="$data['nilai_sem_satu']"
                 :rata="isset($data['nilai_sem_satu']) ? $data['rata_sem_satu']: null"
                 :rank="isset($data['nilai_sem_satu']) ? $data['rank_sem_satu']: null"
@@ -223,7 +223,7 @@
               ></x-semester>
               <x-semester
                 no="Semester 2"
-                route="nilai-sem-dua"
+                route="nilai-dua"
                 :nilai="$data['nilai_sem_dua']"
                 :rata="isset($data['nilai_sem_dua']) ? $data['rata_sem_dua']: null"
                 :rank="isset($data['nilai_sem_dua']) ? $data['rank_sem_dua']: null"
@@ -231,7 +231,7 @@
               ></x-semester>
               <x-semester
                 no="Semester 3"
-                route="nilai-sem-tiga"
+                route="nilai-tiga"
                 :nilai="$data['nilai_sem_tiga']"
                 :rata="isset($data['nilai_sem_tiga']) ? $data['rata_sem_tiga']: null"
                 :rank="isset($data['nilai_sem_tiga']) ? $data['rank_sem_tiga']: null"
@@ -239,7 +239,7 @@
               ></x-semester>
               <x-semester
                 no="Semester 4"
-                route="nilai-sem-empat"
+                route="nilai-empat"
                 :nilai="$data['nilai_sem_empat']"
                 :rata="isset($data['nilai_sem_empat']) ? $data['rata_sem_empat'] : null"
                 :rank="isset($data['nilai_sem_empat']) ? $data['rank_sem_empat'] : null"
@@ -247,7 +247,7 @@
               ></x-semester>
               <x-semester
                 no="Semester 5"
-                route="nilai-sem-lima"
+                route="nilai-lima"
                 :nilai="$data['nilai_sem_lima']"
                 :rata="isset($data['nilai_sem_lima']) ? $data['rata_sem_lima'] : null"
                 :rank="isset($data['nilai_sem_lima']) ? $data['rank_sem_lima'] : null"
@@ -255,7 +255,7 @@
               ></x-semester>
               <x-semester
                 no="Semester 6"
-                route="nilai-sem-enam"
+                route="nilai-enam"
                 :nilai="$data['nilai_sem_enam']"
                 :rata="isset($data['nilai_sem_enam']) ? $data['rata_sem_enam'] : null"
                 :rank="isset($data['nilai_sem_enam']) ? $data['rank_sem_enam'] : null"
@@ -263,7 +263,7 @@
               ></x-semester>
               <x-semester
                 no="Nilai SKD"
-                route="skd"
+                route="nilai-skd"
                 :nilai="$data['nilai_skd']"
                 :rata="isset($data['nilai_skd']) ? $data['rata_skd'] : null"
                 :rank="isset($data['nilai_skd']) ? $data['rank_skd'] : null"

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('ipk')->nullable();
             $table->boolean('is_anonim')->default(0);
+            $table->boolean('tema')->default(1);
             $table->timestamps();
         });
     }

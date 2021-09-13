@@ -1,5 +1,13 @@
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: false,
+    content: ['./resources/**/*.blade.php',],
+      options: {
+        safelist: [
+          /data-theme$/,
+        ]
+      },
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {

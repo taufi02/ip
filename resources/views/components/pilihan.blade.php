@@ -4,8 +4,8 @@
         <span >
           {{ $judul }}
         </span>
-        <div class="flex flex-row items-baseline space-x-4">
-            <select class="select select-sm select-bordered select-primary mt-2 " wire:model="{{ $wireModel }}">
+        <div class="flex flex-row items-center space-x-4">
+            <select class="select select-sm select-bordered select-primary" wire:model="{{ $wireModel }}">
               <option disabled="disabled" selected="selected">Pilih Instansi</option>
               @forelse($instansis as $instansi)
                   <option wire:click="{{ $wireClick }}" value="{{ $instansi->id }}">{{$instansi->nama}}</option>
@@ -13,8 +13,13 @@
                   <option>No data available</option>
               @endforelse
             </select>
-            <button class="btn btn-sm btn-primary" wire:click="show_instansi('{{ $pilihan }}')">
-                Lihat Data
+            <button class="btn btn-sm btn-primary space-x-2" wire:click="show_instansi('{{ $pilihan }}')">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden sm:inline-block md:hidden lg:inline-block">Lihat Data<span>
             </button>
         </div>
         @if($pilihanInstansi)

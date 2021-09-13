@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{tema: 'cupcake'}" :data-theme="tema">
+<html lang="en" x-data="tema()" :data-theme="tema" x-init="cekTema()">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,8 @@
         <div class="text-primary-content font-bold flex-grow">
             {{ session('user')->name }} <span class="text-sm text-primary">({{ session('user')->npm }})</span>
         </div>
-        <div class="form-control flex flex-row items-center" @click="tema == 'dark' ? tema = 'cupcake' : tema = 'dark'">
+        {{-- <div class="form-control flex flex-row items-center" @click="tema == 'dark' ? tema = 'cupcake' : tema = 'dark'"> --}}
+        <div class="form-control flex flex-row items-center" @click="setTema()">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
               </svg>
@@ -41,5 +42,35 @@
         {{ $slot }}
     </div>
     @livewireScripts
+    <script>
+        function tema(){
+            return {
+                tema : 'dark',
+                setTema(){
+                    console.log(this.tema);
+                    if(this.tema == 'cupcake'){
+                        document.cookie = "tema=dark; expires= 18 Dec 2022 12:00:00 UTC; SameSite=None; Secure";
+                        this.tema = 'dark';
+                    } else {
+                        document.cookie = "tema=cupcake; expires= 18 Dec 2022 12:00:00 UTC; SameSite=None; Secure";
+                        this.tema = 'cupcake';
+                    }
+                },
+                cekTema(){
+                    let tema;
+                    let key = 'tema';
+                    Cookies = decodeURIComponent(document.cookie).split(';');
+                    Cookies.forEach((e)=>{
+                        Cookie = e.substr(1);
+                        NamaCookie = Cookie.split('=')[0];
+                        if(NamaCookie == key){
+                            tema = Cookie.split('=')[1];
+                        }
+                    });
+                    return this.tema = tema;
+                }
+            }
+        }
+    </script>
 </body>
 </html>

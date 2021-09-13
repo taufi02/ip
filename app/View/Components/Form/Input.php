@@ -6,17 +6,17 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
-    public $nama, $label, $edit;
+    public $field, $label, $sks;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($nama, $label, $edit = null)
+    public function __construct($field, $label, $sks)
     {
-        $this->nama = $nama;
+        $this->field = $field;
         $this->label = $label;
-        $this->edit = $edit;
+        $this->sks = $sks;
     }
 
     /**

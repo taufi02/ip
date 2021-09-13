@@ -40,7 +40,7 @@ class AuthController extends Controller
         $user_lama = User::where('google_id', $user->id)->first();
         if(!empty($user_lama)){
             session(['user' => $user_lama]);
-            return redirect(route('home'));
+            return redirect(route('dashboard'));
         } else {
             $user_baru = new User();
             $user_baru->name = $user->getName();
@@ -52,7 +52,7 @@ class AuthController extends Controller
             $user_baru->is_anonim = 0;
             $user_baru->save();
             session(['user' => $user_baru]);
-            return redirect(route('home'));
+            return redirect(route('dashboard'));
         }
     }
     public function logout(){
