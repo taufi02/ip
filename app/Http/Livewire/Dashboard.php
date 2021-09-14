@@ -59,24 +59,27 @@ class Dashboard extends Component
 
     // Pilih Instansi
 
-    public function pilihan_satu(){
+    public function pilihan_satu($id){
         if($this->update){
+            $this->pilihan_satu->instansi_id = $id;
             $this->pilihan_satu->save();
             $this->mount();
         } else {
             $this->emit('alert', ['error', 'Maaf, masa perubahan data telah usai.']);
         }
     }
-    public function pilihan_dua(){
+    public function pilihan_dua($id){
         if($this->update){
+            $this->pilihan_dua->instansi_id = $id;
             $this->pilihan_dua->save();
             $this->mount();
         } else {
             $this->emit('alert', ['error', 'Maaf, masa perubahan data telah usai.']);
         }
     }
-    public function pilihan_tiga(){
+    public function pilihan_tiga($id){
         if($this->update){
+            $this->pilihan_tiga->instansi_id = $id;
             $this->pilihan_tiga->save();
             $this->mount();
         } else {
