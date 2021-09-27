@@ -37,7 +37,8 @@ class AuthController extends Controller
         }
 
         // cocokan dengan database
-        $user_lama = User::where('google_id', $user->id)->first();
+        $user_lama = User::with('kelas')->where('google_id', $user->id)->first();
+        // dd($user_lama->kelas->kelas);
         if(!empty($user_lama)){
             session(['user' => $user_lama]);
             return redirect(route('dashboard'));

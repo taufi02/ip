@@ -68,8 +68,6 @@
                         <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
                     @endif
                   </svg>
-                  {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  </svg> --}}
             </div>
             <div class="group cursor-pointer ralative" x-data="{show : false}" x-transition>
                 <svg
@@ -97,6 +95,7 @@
         :pilihan-instansi="$pilihan_satu->instansi->nama ?? null"
         :jumlah-instansi="$jumlah_instansi_satu"
         pilihan="pilihan_satus"
+        :jumlah-partisipan-kelas="$data['partisipan_pilihan_satu_kelas']"
     ></x-pilihan>
 
     <x-pilihan
@@ -107,6 +106,7 @@
         :pilihan-instansi="$pilihan_dua->instansi->nama ?? null"
         :jumlah-instansi="$jumlah_instansi_dua"
         pilihan="pilihan_duas"
+        :jumlah-partisipan-kelas="$data['partisipan_pilihan_dua_kelas']"
     ></x-pilihan>
 
     <x-pilihan
@@ -117,6 +117,7 @@
         :pilihan-instansi="$pilihan_tiga->instansi->nama ?? null"
         :jumlah-instansi="$jumlah_instansi_tiga"
         pilihan="pilihan_tigas"
+        :jumlah-partisipan-kelas="$data['partisipan_pilihan_tiga_kelas']"
     ></x-pilihan>
 
     <div
@@ -214,12 +215,12 @@
                 <th>IP / Nilai SKD</th>
                 <th>Rata-rata angkatan</th>
                 <th>Peringkat</th>
-                <th style="max-width: 200px" class="text-center">Partisipan</th>
+                <th>Pertisipan {{ $user_kelas }}</th>
+                <th style="max-width: 200px" class="text-center">Seluruh Partisipan</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-
               <x-semester
                 no="Semester 1"
                 route="nilai-satu"
@@ -227,6 +228,7 @@
                 :rata="isset($data['nilai_sem_satu']) ? $data['rata_sem_satu']: null"
                 :rank="isset($data['nilai_sem_satu']) ? $data['rank_sem_satu']: null"
                 :partisipan="isset($data['nilai_sem_satu']) ? $data['partisipan_sem_satu'] : null"
+                :partisipan-kelas="isset($data['nilai_sem_satu']) ? $data['partisipan_sem_satu_kelas'] : null"
               ></x-semester>
               <x-semester
                 no="Semester 2"
@@ -235,6 +237,7 @@
                 :rata="isset($data['nilai_sem_dua']) ? $data['rata_sem_dua']: null"
                 :rank="isset($data['nilai_sem_dua']) ? $data['rank_sem_dua']: null"
                 :partisipan="isset($data['nilai_sem_dua']) ? $data['partisipan_sem_dua'] : null"
+                :partisipan-kelas="isset($data['nilai_sem_dua']) ? $data['partisipan_sem_dua_kelas'] : null"
               ></x-semester>
               <x-semester
                 no="Semester 3"
@@ -243,6 +246,7 @@
                 :rata="isset($data['nilai_sem_tiga']) ? $data['rata_sem_tiga']: null"
                 :rank="isset($data['nilai_sem_tiga']) ? $data['rank_sem_tiga']: null"
                 :partisipan="isset($data['nilai_sem_tiga']) ? $data['partisipan_sem_tiga'] : null"
+                :partisipan-kelas="isset($data['nilai_sem_tiga']) ? $data['partisipan_sem_tiga_kelas'] : null"
               ></x-semester>
               <x-semester
                 no="Semester 4"
@@ -251,6 +255,7 @@
                 :rata="isset($data['nilai_sem_empat']) ? $data['rata_sem_empat'] : null"
                 :rank="isset($data['nilai_sem_empat']) ? $data['rank_sem_empat'] : null"
                 :partisipan="isset($data['nilai_sem_empat']) ? $data['partisipan_sem_empat'] : null"
+                :partisipan-kelas="isset($data['nilai_sem_empat']) ? $data['partisipan_sem_empat_kelas'] : null"
               ></x-semester>
               <x-semester
                 no="Semester 5"
@@ -259,6 +264,7 @@
                 :rata="isset($data['nilai_sem_lima']) ? $data['rata_sem_lima'] : null"
                 :rank="isset($data['nilai_sem_lima']) ? $data['rank_sem_lima'] : null"
                 :partisipan="isset($data['nilai_sem_lima']) ? $data['partisipan_sem_lima'] : null"
+                :partisipan-kelas="isset($data['nilai_sem_lima']) ? $data['partisipan_sem_lima_kelas'] : null"
               ></x-semester>
               <x-semester
                 no="Semester 6"
@@ -267,14 +273,16 @@
                 :rata="isset($data['nilai_sem_enam']) ? $data['rata_sem_enam'] : null"
                 :rank="isset($data['nilai_sem_enam']) ? $data['rank_sem_enam'] : null"
                 :partisipan="isset($data['nilai_sem_enam']) ? $data['partisipan_sem_enam'] : null"
+                :partisipan-kelas="isset($data['nilai_sem_enam']) ? $data['partisipan_sem_enam_kelas'] : null"
               ></x-semester>
-              <x-semester
+             <x-semester
                 no="Nilai SKD"
                 route="nilai-skd"
                 :nilai="$data['nilai_skd']"
                 :rata="isset($data['nilai_skd']) ? $data['rata_skd'] : null"
                 :rank="isset($data['nilai_skd']) ? $data['rank_skd'] : null"
                 :partisipan="isset($data['nilai_skd']) ? $data['partisipan_skd'] : null"
+                :partisipan-kelas="isset($data['nilai_skd']) ? $data['partisipan_skd_kelas'] : null"
               ></x-semester>
 
             </tbody>
@@ -495,7 +503,7 @@ const externalTooltipHandler = (context) => {
     ipk_gabungan.reverse();
     rank = ipk_gabungan.indexOf(ipk_saya);
     pesan_rank = document.getElementById('pesan_rank');
-    pesan_rank.innerHTML = `<p class="text-base-content">Jika kamu memilih <span class="font-bold">${tooltip.dataPoints[0].label}</span> sekarang, kamu akan berada di urutan ${rank + 1}</p>`
+    pesan_rank.innerHTML = `<p class="text-base-content">Jika kamu memilih <span class="font-bold">${tooltip.dataPoints[0].label}</span> sekarang, kamu akan berada di peringkat ${rank + 1}</p>`
 };
 
 

@@ -12,9 +12,9 @@ class pilihan extends Component
      * @return void
      */
 
-    public $judul, $wireModel, $wireClick, $instansis, $pilihanInstansi, $jumlahInstansi, $pilihan;
+    public $judul, $wireModel, $wireClick, $instansis, $pilihanInstansi, $jumlahInstansi, $pilihan, $jumlahPartisipanKelas;
 
-    public function __construct($judul, $wireModel,$wireClick, $instansis, $pilihanInstansi, $jumlahInstansi, $pilihan)
+    public function __construct($judul, $wireModel,$wireClick, $instansis, $pilihanInstansi, $jumlahInstansi, $pilihan, $jumlahPartisipanKelas)
     {
         $this->judul = $judul;
         $this->wireModel = $wireModel;
@@ -23,6 +23,7 @@ class pilihan extends Component
         $this->pilihanInstansi = $pilihanInstansi;
         $this->jumlahInstansi = $jumlahInstansi;
         $this->pilihan = $pilihan;
+        $this->jumlahPartisipanKelas = $jumlahPartisipanKelas;
     }
 
     /**

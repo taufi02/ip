@@ -7,8 +7,8 @@ use Illuminate\View\Component;
 class Semester extends Component
 {
 
-    public $nilai, $rata, $rank, $no, $route, $route_arg, $partisipan, $progress;
-    public function __construct( $nilai, $rata, $rank, $no, $route, $partisipan)
+    public $nilai, $rata, $rank, $no, $route, $route_arg, $partisipan, $progress,  $partisipanKelas;
+    public function __construct( $nilai, $rata, $rank, $no, $route, $partisipan,  $partisipanKelas)
     {
         $this->nilai = $nilai;
         $this->rata = $rata;
@@ -17,6 +17,7 @@ class Semester extends Component
         $this->route = $route;
         $this->route_arg = str_replace("-","_",$route);
         $this->partisipan = $partisipan;
+        $this->partisipanKelas = $partisipanKelas;
         $this->progress = ($partisipan/121)*100;
     }
 

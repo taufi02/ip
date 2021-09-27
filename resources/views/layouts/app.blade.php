@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    <link rel="shortcut icon" href="{{ asset('logo.png') }}" type="image/x-icon">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Cek your IP</title>
     @livewireStyles
@@ -15,7 +16,8 @@
     {{-- Navigation --}}
     <div class="flex items-center bg-accent space-x-4 p-4">
         <div class="text-primary-content font-bold flex-grow">
-            {{ session('user')->name }} <span class="text-sm text-primary">({{ session('user')->npm }})</span>
+            {{ session('user')->name }} | {{ session('user')->kelas->kelas }} <span class="text-sm text-primary">({{ session('user')->npm }})</span>
+
         </div>
         {{-- <div class="form-control flex flex-row items-center" @click="tema == 'dark' ? tema = 'cupcake' : tema = 'dark'"> --}}
         <div class="form-control flex flex-row items-center" @click="setTema()">

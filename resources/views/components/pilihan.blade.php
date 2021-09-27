@@ -34,6 +34,9 @@
           <small>
               {{ $jumlahInstansi }} Orang memilih kantor yang sama dengan pilihanmu pada {{ $judul }}!
           </small>
+          <small>
+              {{ $jumlahPartisipanKelas }} Orang teman sekelas kamu telah memilih {{ $judul }}!
+          </small>
         @endif
     </div>
 </div>

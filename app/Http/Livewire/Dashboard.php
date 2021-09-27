@@ -16,11 +16,14 @@ use App\Models\PilihanSatu;
 use App\Models\PilihanDua;
 use App\Models\PilihanTiga;
 use App\Models\skd;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
 
 class Dashboard extends Component
 {
     public $user;
+    public $user_kelas;
     public $data;
     // IPK all partisipan
     public $ipk_saya;
@@ -195,6 +198,7 @@ class Dashboard extends Component
         }
 
         $this->user = User::find(session('user')->id);
+        $this->user_kelas = session('user')->kelas->kelas;
 
 
 
@@ -250,7 +254,6 @@ class Dashboard extends Component
             $rank_sem_satu = array_search($nilai_sem_satu, $nilai_all_sem_satu) + 1;
             $partisipan_sem_satu = NilaiSemSatu::count();
 
-            // Tambahkan data rata-rata dan ranking
             $this->data += compact(
                 'rata_sem_satu',
                 'rank_sem_satu',
@@ -435,10 +438,37 @@ class Dashboard extends Component
         }
         $this->nilai_gabungan_saya = $this->ubah_ipk_skd($this->ipk_saya, $this->skd_saya);
 
+        // Get data partisipan per kelas
+        $this->data['partisipan_sem_satu_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('nilai_sem_satus');
+        $this->data['partisipan_sem_dua_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('nilai_sem_duas');
+        $this->data['partisipan_sem_tiga_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('nilai_sem_tigas');
+        $this->data['partisipan_sem_empat_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('nilai_sem_empats');
+        $this->data['partisipan_sem_lima_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('nilai_sem_limas');
+        $this->data['partisipan_sem_enam_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('nilai_sem_enams');
+        $this->data['partisipan_skd_kelas'] = $this->getJumlahPartisipanNilaiPerKelas('skds');
+
+        $this->data['partisipan_pilihan_satu_kelas'] = $this->getJumlahPartisipanPilihanPerKelas('pilihan_satus');
+        $this->data['partisipan_pilihan_dua_kelas'] = $this->getJumlahPartisipanPilihanPerKelas('pilihan_duas');
+        $this->data['partisipan_pilihan_tiga_kelas'] = $this->getJumlahPartisipanPilihanPerKelas('pilihan_tigas');
     }
     public function flash_data($tipe, $isi){
         session()->flash('pesan_tipe',"$tipe");
         session()->flash('pesan_isi',"$isi");
+    }
+
+    public function getJumlahPartisipanNilaiPerKelas($tabel){
+        return DB::table($tabel)
+                ->join('users',$tabel.'.user_id', '=', 'users.id')
+                ->join('kelas', 'kelas.npm', '=', 'users.npm')
+                ->where('kelas', $this->user_kelas)
+                ->count();
+    }
+    public function getJumlahPartisipanPilihanPerKelas($tabel){
+        return DB::table($tabel)
+                ->join('users',$tabel.'.user_id', '=', 'users.id')
+                ->join('kelas', 'kelas.npm', '=', 'users.npm')
+                ->where('kelas', $this->user_kelas)
+                ->count();
     }
     public function render()
     {

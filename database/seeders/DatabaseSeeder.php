@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             PilihanDuaSeeder::class,
             PilihanTigaSeeder::class,
             RoleSeeder::class,
+            KelasSeeder::class,
         ]);
 
 

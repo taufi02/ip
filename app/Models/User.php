@@ -74,5 +74,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+    public function kelas(){
+        return $this->hasOne(Kelas::class, 'npm', 'npm');
+    }
 
 }

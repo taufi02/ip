@@ -3,6 +3,7 @@
     <td>{{ $nilai ?? "N/A"}}</td>
     <td>{{ isset($nilai) ? $rata : 'N/A' }}</td>
     <td>{{ isset($nilai) ? $rank : 'N/A' }} / {{ isset($nilai) ? $partisipan : 'N/A' }}</td>
+    <td>{{ isset($nilai) ? $partisipanKelas : 'N/A' }}</td>
     <td>
         @if( isset($nilai) )
         <progress class="progress progress-primary" value="{{ $progress }}" max="100"></progress>
